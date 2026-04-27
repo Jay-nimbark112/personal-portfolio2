@@ -46,23 +46,27 @@ export function Navbar({ darkMode, toggleTheme }) {
         </button>
 
         {/* MENU */}
-        <div className="collapse navbar-collapse" id="navbarNav">
+      <div className="collapse navbar-collapse" id="navbarNav">
 
-          <div className="ms-auto d-flex flex-column flex-lg-row align-items-start align-items-lg-center gap-3 py-3 py-lg-0">
+  <div className="ms-auto d-flex flex-column flex-lg-row align-items-center align-items-lg-center justify-content-center justify-content-lg-end gap-3 py-3 py-lg-0">
 
-            <a className="nav-link" href="#home">Home</a>
-            <a className="nav-link" href="#services">Services</a>
-            <a className="nav-link" href="#experience">Experience</a>
-            <a className="nav-link" href="#portfolio">Portfolio</a>
-            <a className="nav-link" href="#testimonial">Testimonial</a>
+    <a className="nav-link" href="#home">Home</a>
+    <a className="nav-link" href="#services">Services</a>
+    <a className="nav-link" href="#experience">Experience</a>
+    <a className="nav-link" href="#portfolio">Portfolio</a>
+    <a className="nav-link" href="#testimonial">Testimonial</a>
 
-            <a href="#contact" className="btn btn-primary rounded-pill px-4 cont">
-              Contact
-            </a>
+    {/* CONTACT BUTTON */}
+    <a
+      href="#contact"
+      className="btn btn-primary rounded-pill px-4 cont mx-auto mx-lg-0"
+    >
+      Contact
+    </a>
 
-          </div>
+  </div>
 
-        </div>
+</div>
 
       </div>
     </nav>

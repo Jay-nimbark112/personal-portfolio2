@@ -94,12 +94,14 @@ export function Home({ darkMode }) {
 
           {/* 🚀 Button */}
           <div className="rocket-container">
-            <button
-              onClick={handleHireClick}
-              className="btn btn-primary px-4 py-2 rounded-pill mt-3"
-            >
-              Hire Me 🚀
-            </button>
+            <div className="text-center text-lg-start">
+  <button
+    onClick={handleHireClick}
+    className="btn btn-primary px-4 py-2 rounded-pill mt-3"
+  >
+    Hire Me 🚀
+  </button>
+</div>
 
         {launch && (
   <motion.div
