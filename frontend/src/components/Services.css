@@ -1,0 +1,146 @@
+.service-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 🌞 LIGHT MODE (IMPORTANT FIX) */
+.card-light {
+  background: #ffffff;
+  color: #111;
+
+  /* STRONG BORDER (THIS FIXES YOUR ISSUE) */
+  border: 2px solid #d0d7de;
+
+  /* SHADOW FOR VISIBILITY */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* 🌙 DARK MODE */
+.card-dark {
+  background: #1a1a1a;
+  color: #f1f1f1;
+  border: 2px solid #2d2d2d;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* HOVER EFFECT */
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #0d6efd;
+  box-shadow: 0 15px 35px rgba(13, 110, 253, 0.2);
+}
+
+/* ICON */
+.service-card div {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* TEXT */
+.service-card p {
+  opacity: 0.8;
+}
+
+
+section {
+  scroll-margin-top: 90px; /* adjust for navbar height */
+}
+
+.service-end-fire {
+  width: 70%;
+  height: 6px;
+  margin: 80px auto 0 auto;
+  position: relative;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.service-end-fire {
+  width: 70%;
+  height: 10px;
+  margin: 80px auto 0 auto;
+  position: relative;
+  border-radius: 50px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff3b00,
+    #ff7a00,
+    #ffb300,
+    #ff3b00,
+    transparent
+  );
+
+  filter: blur(1px) contrast(2);
+  overflow: hidden;
+}
+
+.service-end-fire::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -10px;
+  width: 100%;
+  height: 40px;
+
+  background: radial-gradient(
+    circle at 50% 100%,
+    rgba(255, 200, 0, 0.9),
+    rgba(255, 80, 0, 0.6),
+    transparent 70%
+  );
+
+  animation: fireWave 0.2s infinite linear;
+  filter: blur(6px);
+}
+
+.service-end-fire::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -15px;
+  width: 100%;
+  height: 50px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 140, 0, 0.5),
+    transparent
+  );
+
+  animation: flicker 0.15s infinite alternate;
+  filter: blur(10px);
+}
+@keyframes fireWave {
+  0% {
+    transform: translateX(-2px) scaleY(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(2px) scaleY(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-2px) scaleY(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.6;
+    transform: scaleY(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+}

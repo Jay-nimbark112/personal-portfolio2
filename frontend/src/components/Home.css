@@ -1,0 +1,138 @@
+/* Enable 3D perspective */
+.hero-image-wrapper {
+  position: relative;
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glow background */
+.image-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, #4facfe, #7b2ff7);
+  filter: blur(80px);
+  opacity: 0.5;
+  z-index: 1;
+  transition: 0.4s;
+}
+
+/* Card */
+.image-card {
+  position: relative;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 25px;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+}
+
+/* Image */
+.hero-image {
+  width: 320px;
+  border-radius: 18px;
+  transform: translateZ(30px);
+  transition: 0.3s ease;
+}
+
+/* Hover glow boost */
+.hero-image-wrapper:hover .image-glow {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Dark mode */
+body.dark .image-card {
+  box-shadow: 0 20px 60px rgba(0, 140, 255, 0.15);
+}
+
+/* Light mode */
+body:not(.dark) .image-card {
+  background: #3d4398;
+  border: 1px solid #eee;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card must hide overflow */
+/* Card */
+.image-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Cursor glow */
+.glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  z-index: 3;
+  transition: background 0.15s ease;
+}
+
+/* ⚡ Diagonal shine line */
+.shine-line {
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.25),
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* 🔥 Hover triggers shine sweep */
+.image-card:hover .shine-line {
+  animation: shineSweep 1.2s ease;
+}
+
+/* Animation */
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+
+.rocket-wrapper {
+  position: fixed;
+  left: 20%;
+  bottom: 120px;
+  z-index: 9999;
+  pointer-events: none;
+   will-change: transform;
+  transform-origin: center;
+}
+
+.rocket {
+  font-size: 110px;
+  position: relative;
+  z-index: 2;
+}
+
+
+section {
+  scroll-margin-top: 90px; /* adjust for navbar height */
+}

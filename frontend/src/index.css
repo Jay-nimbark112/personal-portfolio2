@@ -1,0 +1,122 @@
+
+@font-face {
+  font-family: "Gumela";
+  src: url("./assets/fonts/Gumela.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+html {
+  scroll-behavior: smooth;
+    overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Gumela", sans-serif;
+    overflow-x: hidden;
+  width: 100%;
+}
+
+/* FIX for fixed navbar overlap */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* navbar spacing */
+.nav-link {
+  color: inherit;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #7ec8f5;
+}
+
+.navbar,
+#home {
+  font-family: "Gumela", sans-serif;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 78px;
+  height: 36px;
+}
+
+/* hide checkbox */
+.toggle-switch input {
+  display: none;
+}
+
+/* TRACK */
+.track {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  
+
+  /* STRONG CONTRAST BASE */
+  background: #e5e7eb;
+
+  transition: 0.4s ease;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.25);
+}
+
+/* DARK MODE TRACK */
+.toggle-switch input:checked + .track {
+  background: #0f172a;
+}
+
+/* THUMB */
+.thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 30px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* MOVE THUMB */
+.toggle-switch input:checked + .track .thumb {
+  transform: translateX(42px);
+}
+
+/* ICONS (IMPORTANT FIX) */
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;   /* bigger */
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+/* FORCE STRONG VISIBILITY */
+.sun {
+  left: 10px;
+  color: #f59e0b;
+  opacity: 1;
+}
+
+.moon {
+  right: 10px;
+  color: #38bdf8;
+  opacity: 1;
+}
+
+/* FADE NOT HIDE (important fix) */
+.toggle-switch input:checked + .track .sun {
+  opacity: 0.6;
+}
+
+.toggle-switch input:checked + .track .moon {
+  opacity: 1;
+}
+

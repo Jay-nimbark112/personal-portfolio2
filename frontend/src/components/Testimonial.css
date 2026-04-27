@@ -1,0 +1,140 @@
+.test-section.dark {
+  background-color: #000;
+  overflow: hidden; /* Hide the cards as they slide out */
+  padding: 80px 0;
+}
+
+.test-section.dark .section-title {
+  color: #fff !important;
+}
+
+
+
+/* The "Window" through which you see the cards */
+.testimonial-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* The long row that actually moves */
+.testimonial-track {
+  display: flex;
+  width: max-content; /* Important: keeps cards in one long line */
+  gap: 30px;
+  animation: scrollLoop 30s linear infinite;
+}
+
+/* Pause animation on hover so users can read */
+.testimonial-track:hover {
+  animation-play-state: paused;
+}
+
+/* THE CARD STYLE */
+.test-card {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  width: 350px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: 0.3s ease;
+}
+
+.test-text {
+  font-style: italic;
+  font-size: 14px;
+  margin: 15px 0;
+  color: inherit;
+}
+
+.test-section.light {
+  color: #111;
+}
+
+.test-section.dark {
+  color: #fff;
+}
+
+
+
+.stars {
+  color: #ffc107;
+}
+
+/* THE ANIMATION */
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Moves by exactly half the width of the total track */
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile speed adjustment */
+@media (max-width: 768px) {
+  .testimonial-track {
+    animation-duration: 20s;
+  }
+  .test-card {
+    width: 280px;
+  }
+}
+
+
+section {
+  scroll-margin-top: 90px; /* adjust for navbar height */
+}
+
+.test-section.light .test-card {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.test-section.dark .test-card {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* FORCE TEXT INSIDE CARD */
+.test-card * {
+  color: inherit;
+}
+
+/* OVERRIDE TEXT PROPERLY */
+.test-section.light .test-text {
+  color: #111;
+}
+
+.test-section.dark .test-text {
+  color: #fff;
+}
+
+.test-section.light .test-footer small {
+  color: #666;
+}
+
+.test-section.dark .test-footer small {
+  color: #aaa;
+}
+
+.test-section.light .section-title {
+  color: #111 !important;
+}
+
+.test-section.dark .section-title {
+  color: #fff;
+}
+
+.test-section.light .section-title {
+  color: #111;
+}

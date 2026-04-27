@@ -1,0 +1,165 @@
+/* --- Base Styles (Keep your existing timeline structure) --- */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  background: #0d6efd;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+.timeline-content {
+  padding: 20px;
+  border-radius: 14px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* --- THE DARK MODE THEME LOGIC --- */
+
+/* 1. Background of the whole section stays Black */
+
+/* Light mode (default) */
+.section-title {
+  color: #fff; 
+}
+
+/* Dark mode - Only heading becomes white */
+.exp-section.dark .section-title {
+  color: #ffffff !important;
+}
+
+
+.exp-section.dark {
+  background-color: #000 !important;
+  color: #fff; /* Title and general text white */
+  min-height: 100vh;
+  padding: 60px 0;
+}
+
+/* 2. THE CARD: Light background even when section is dark */
+.exp-section.dark .timeline-content {
+  background: #f8f9fa; /* Light grey/white card */
+  color: #212529;      /* Dark text for readability inside the light card */
+  border: 1px solid #dee2e6;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Ensuring list points are visible inside the light card */
+.exp-section.dark .timeline-content ul li {
+  color: #333;
+}
+
+/* --- LIGHT MODE THEME LOGIC --- */
+.exp-section.light {
+
+  color: #111;
+}
+
+.exp-section.light .timeline-content {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Shared Decorations --- */
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #0d6efd;
+  border-radius: 50%;
+  top: 25px;
+  z-index: 1;
+}
+
+.timeline-item.left::before { right: -7px; }
+.timeline-item.right::before { left: -7px; }
+
+.timeline-content:hover {
+  transform: translateY(-6px);
+  border-color: #0d6efd;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .timeline::after { left: 8px; }
+  .timeline-item { width: 100%; padding-left: 30px; text-align: left !important; }
+  .timeline-item.right, .timeline-item.left { left: 0; }
+  .timeline-item::before { left: 0; }
+}
+
+
+/* This ensures the text inside the list is always aligned to the left 
+   relative to the bullet point, regardless of the card's position */
+.timeline-content ul {
+  list-style: disc; /* Ensures standard bullets appear */
+  padding-left: 20px; /* Gives space for the bullets */
+  margin-top: 10px;
+  text-align: left; /* CRITICAL: This overrides the right-align from the parent */
+}
+
+.timeline-content ul li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: list-item; /* Ensures it behaves like a standard bullet point */
+}
+
+/* Specifically for the left-side items to prevent the "stepping" effect */
+.timeline-item.left .timeline-content {
+  text-align: left; /* Keep the card text left-aligned even if the card is on the left */
+}
+
+
+/* 1. Fix the main title visibility */
+.exp-section.dark h2 {
+  color: #ffffff !important;
+  text-shadow: 0 0 10px rgba(13, 110, 253, 0.2); /* Subtle blue glow */
+}
+
+/* 2. Improve card internal spacing */
+.timeline-content {
+  padding: 30px !important; /* Increased padding for a "premium" feel */
+  text-align: left !important; /* Ensures everything stays left-aligned */
+}
+
+/* 3. Improve readability of the secondary text */
+.timeline-content .opacity-75 {
+  color: #555 !important; /* Slightly darker for better contrast on white */
+  font-weight: 500;
+}
+
+/* 4. Fix the bullet point alignment (The "Flush" Look) */
+.timeline-content ul {
+  padding-left: 1.2rem; 
+  margin-top: 15px;
+}
+
+.timeline-content ul li {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+section {
+  scroll-margin-top: 90px; /* adjust for navbar height */
+}
